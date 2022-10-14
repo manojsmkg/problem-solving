@@ -12,7 +12,7 @@ class Solution{
         sort(A,A+N);
         sort(B,B+M);
         int i=0,j=M-1;
-        while(i<N && j<M &&i>=0 && j>=0)
+        while(i<N && j<M && i>=0 && j>=0)
         {
             if(A[i]+B[j] == X)
             {
