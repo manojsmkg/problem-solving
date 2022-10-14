@@ -12,41 +12,38 @@ using namespace std;
 class Solution{
   public:
     
-    long long int productExcludingCurrZero(vector<long long int>& nums,int i,int n)
-    {
-        
-        long long int product_of_all = 1;
-
-        for(int j=0;j<n;j++)
-        {
-            if(j!=i) product_of_all*=nums[j];
-        }
-        //cout<<i<<" "<<product_of_all<<endl;
-        return product_of_all;
-        
-    }
-    
     // nums: given vector
     // return the Product vector P that hold product except self at each index
     
     vector<long long int> productExceptSelf(vector<long long int>& nums, int n) 
     {
-        long long int product_of_all = 1;
+        long long int productOfAll = 1;
         
         vector<long long int> result_arr;
         
+        int zeroCount=0;
+        
         for(int i=0;i<n;i++)
         {
-            product_of_all*=nums[i];
+            if(nums[i]!=0)
+                productOfAll*=nums[i];
+                
+            else zeroCount++;
         }
         
         for(int i=0;i<n;i++)
         {
-            if(nums[i] != 0)
-                result_arr.push_back(product_of_all/nums[i]);
+            if(zeroCount>1)
+                result_arr.push_back(0);
+                
+            else if(zeroCount==1 && nums[i]==0)
+                result_arr.push_back(productOfAll);
+                
+            else if(zeroCount==1 && nums[i]!=0)
+                result_arr.push_back(0);
             
             else 
-                result_arr.push_back(productExcludingCurrZero(nums,i,n));
+                result_arr.push_back(productOfAll/nums[i]);
         }
         
         return result_arr;
