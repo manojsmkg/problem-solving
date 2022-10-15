@@ -9,7 +9,6 @@ class Solution{
         //Function to merge the arrays.
         void merge(long long arr1[], long long arr2[], int n, int m) 
         {
-
              int i=n-1,j=0;
              
              while(i>=0 && j<m)
