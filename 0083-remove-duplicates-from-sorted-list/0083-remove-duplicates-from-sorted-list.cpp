@@ -19,7 +19,7 @@ public:
         int start=0;
         while(temp)
         {
-            if(prev==NULL) 
+            if(!prev) 
             {
                 prev=temp;
                 temp=temp->next;
