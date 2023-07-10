@@ -2,8 +2,7 @@ class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
         
-        set<int> flagRows;
-        set<int> flagCols;
+        int col0Flag =1;
         
         int m=matrix.size();
         int n=matrix[0].size();
@@ -14,27 +13,46 @@ public:
             {
                 if(matrix[i][j]==0)
                 {
-                    flagRows.insert(i);
-                    flagCols.insert(j);
+                    if(i==0)
+                    {
+                      matrix[0][0]=0;
+                        if(j==0) col0Flag =0;
+                    }
+                    
+                    else if(j==0)
+                        col0Flag=0;
+                    else
+                    {
+                        matrix[i][0]=0;
+                        matrix[0][j]=0;
+                    }    
                 }
             }
         }
+         
+     for(int j=1;j<n;j++)
+     {
+         if(matrix[0][j] == 0)
+         {
+             for(int i=0;i<m;i++)
+                 matrix[i][j]=0;
+         }
+    
+      }
         
-        for(auto i:flagRows)
+         for(int i=0;i<m;i++)
+     {
+         if(matrix[i][0] == 0)
+         {
+             for(int j=0;j<n;j++)
+                 matrix[i][j]=0;
+         }
+    
+      }
+        
+        if(col0Flag == 0)
         {
-            for(int j=0;j<n;j++)
-            {
-                matrix[i][j]=0;
-            }
+            for(int i=0;i<m;i++) matrix[i][0]=0;
         }
-        
-        for(auto j:flagCols)
-        {
-            for(int i=0;i<m;i++)
-            {
-                matrix[i][j]=0;
-            }
-        }
-        
     }
 };
