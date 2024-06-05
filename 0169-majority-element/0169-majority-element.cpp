@@ -1,18 +1,17 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        int maxCount = 1,currMaxCount = 1;
-        int majElement=nums[0];
-        for(int i=1;i<nums.size();i++)
+        
+        int n=nums.size();
+        int count=1,element = nums[0];
+        for(int i=1;i<n;i++)
         {
-            if(nums[i]==nums[i-1]) 
-            {
-                currMaxCount++;
-                if(currMaxCount>maxCount) {majElement = nums[i];maxCount=currMaxCount;}
-            }
-            else currMaxCount = 1;
+            if(count==0) element=nums[i];
+            
+            if(element == nums[i]) count++;
+            else count--;
         }
-        return majElement;
+            return element;
+        
     }
 };
