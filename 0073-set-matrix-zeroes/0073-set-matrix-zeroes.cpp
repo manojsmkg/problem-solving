@@ -1,58 +1,39 @@
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
+        int rows=matrix.size();
+        int cols=matrix[0].size();
         
-        int col0Flag =1;
+        vector<int> rowInd(rows,1);
+        vector<int> colInd(cols,1);
         
-        int m=matrix.size();
-        int n=matrix[0].size();
-        
-        for(int i=0;i<m;i++)
+        for(int i=0;i<rows;i++)
         {
-            for(int j=0;j<n;j++)
+            for(int j=0;j<cols;j++)
             {
-                if(matrix[i][j]==0)
-                {
-                    if(i==0)
-                    {
-                      matrix[0][0]=0;
-                        if(j==0) col0Flag =0;
-                    }
-                    
-                    else if(j==0)
-                        col0Flag=0;
-                    else
-                    {
-                        matrix[i][0]=0;
-                        matrix[0][j]=0;
-                    }    
+                if(matrix[i][j]==0) {
+                    rowInd[i]=0;
+                    colInd[j]=0;
                 }
             }
         }
-         
-     for(int j=1;j<n;j++)
-     {
-         if(matrix[0][j] == 0)
-         {
-             for(int i=0;i<m;i++)
-                 matrix[i][j]=0;
-         }
-    
-      }
         
-         for(int i=0;i<m;i++)
-     {
-         if(matrix[i][0] == 0)
-         {
-             for(int j=0;j<n;j++)
-                 matrix[i][j]=0;
-         }
-    
-      }
-        
-        if(col0Flag == 0)
+        for(int i=0;i<rows;i++)
         {
-            for(int i=0;i<m;i++) matrix[i][0]=0;
+            if(rowInd[i]==0)
+            {
+                for(int j=0;j<cols;j++)
+                    matrix[i][j]=0;
+            }
         }
+        
+        for(int j=0;j<cols;j++)
+        {
+            if(colInd[j]==0)
+            {
+                for(int i=0;i<rows;i++)
+                    matrix[i][j]=0;
+            }
+        }        
     }
 };
