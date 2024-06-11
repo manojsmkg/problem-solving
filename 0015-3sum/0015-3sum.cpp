@@ -17,19 +17,16 @@ public:
                 finalRes.push_back(curRes);
                 j++;
                 k--;
-                                while(j<k && nums[j] == nums[j-1]) j++;
+                while(j<k && nums[j] == nums[j-1]) j++;
                 while(j<k && nums[k] == nums[k+1]) k--;
 
             }
             else if(curSum<0)
             {
-                j++;
-                while(j<k && nums[j] == nums[j-1]) j++;
-            }
+                j++;            }
             else
             {
                 k--;
-                while(j<k && nums[k] == nums[k+1]) k--;
             }
             }
         }
