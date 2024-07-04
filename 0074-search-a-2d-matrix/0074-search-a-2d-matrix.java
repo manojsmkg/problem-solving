@@ -6,7 +6,6 @@ class Solution {
         while(rows>1 && low<=high)
         {
             int mid = (low+high)/2;
-            System.out.println(low + " " +high + " "+ mid);
             if(a[mid][0] <= target && a[mid][cols-1]>=target) {probable_row=mid;break;}
             else if(a[mid][0]>target) high=mid-1;
             else
