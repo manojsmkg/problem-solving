@@ -12,7 +12,6 @@ class Solution {
             else
                 low = mid+1;
         }
-        System.out.println(probable_row);
         low=0;high=cols-1;
         while(low<=high)
         {
