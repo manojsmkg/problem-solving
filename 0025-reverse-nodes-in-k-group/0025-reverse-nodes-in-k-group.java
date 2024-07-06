@@ -22,12 +22,6 @@ class Solution {
             temp=loop_temp;
         }
         
-        temp=prev;
-          while(temp!=null)
-        {
-         System.out.println(temp.val);
-            temp=temp.next;
-        }        
         return prev;
     }
     public ListNode reverseKGroup(ListNode head, int k) {
