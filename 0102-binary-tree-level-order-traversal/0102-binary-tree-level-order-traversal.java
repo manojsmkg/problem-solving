@@ -23,7 +23,7 @@ class Solution {
         q.add(root);
         while(!q.isEmpty())
         {
-            List<Integer> currLevel = new ArrayList<>();
+            List<Integer> currLevel = new LinkedList<>();
             int k=q.size();
             
             for(int i=0;i<k;i++)
