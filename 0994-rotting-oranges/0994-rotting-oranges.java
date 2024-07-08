@@ -19,7 +19,6 @@ class Solution {
                 if(a[i][j]==1) freshOranges++;
             }
         }
-        System.out.println(freshOranges);
         if(q.isEmpty() && freshOranges>0) return -1;
         freshOranges=freshOranges+q.size();
         while(!q.isEmpty())
