@@ -20,6 +20,7 @@ class Solution {
             }
         }
         if(q.isEmpty() && freshOranges>0) return -1;
+        if(freshOranges==0) return 0;
         freshOranges=freshOranges+q.size();
         while(!q.isEmpty())
         {
@@ -38,7 +39,7 @@ class Solution {
             count++;
         }
         System.out.println(freshOranges);
-        if(freshOranges==0) return count>0?count-1:count;
+        if(freshOranges==0) return count-1;
         return -1;
         
         
