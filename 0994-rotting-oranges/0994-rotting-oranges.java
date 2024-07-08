@@ -38,7 +38,6 @@ class Solution {
             }
             count++;
         }
-        System.out.println(freshOranges);
         if(freshOranges==0) return count-1;
         return -1;
         
