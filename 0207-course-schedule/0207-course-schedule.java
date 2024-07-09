@@ -18,13 +18,6 @@ class Solution {
         ArrayList<Integer> res = new ArrayList<>();
         for(int i=0;i<numCourses;i++)
         {
-            ArrayList<Integer> currAdj = adj.get(i);
-            System.out.print(i+" ");
-            for(int adjNode:currAdj)
-            {
-                System.out.print(adjNode+" ");
-            }
-            System.out.println("\n"+inDegree[i]);
             if(inDegree[i]==0) {q.add(i);}
         }
         
