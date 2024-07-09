@@ -22,11 +22,7 @@ class Solution {
     
         effort[0][0]=0;
         pq.add(new Node(0,0,0));
-        
-        Node currNodes = pq.peek();
-        System.out.println(currNodes.x+" "+currNodes.y+" "+currNodes.effort);
-        System.out.println("entering loop now");
-        
+                
         while(!pq.isEmpty())
         {
             Node currNode = pq.peek();
@@ -35,7 +31,6 @@ class Solution {
             int i=currNode.x;
             int j=currNode.y;
             int currEffort = currNode.effort;
-            System.out.println(i+" "+j+" "+currEffort);
             
             if(i-1>=0 && Math.max(Math.abs(height[i][j]-height[i-1][j]),currNode.effort)<effort[i-1][j])
             {
