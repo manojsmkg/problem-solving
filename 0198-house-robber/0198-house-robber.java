@@ -1,7 +1,7 @@
 class Solution {
     public int rob(int[] nums) {
         int houses=nums.length;
-        int dp[] = new int[houses+1];
+        int dp[] = new int[houses];
         if(houses==1) return nums[0];
         dp[0]=nums[0];
         dp[1]=Math.max(nums[0],nums[1]);
