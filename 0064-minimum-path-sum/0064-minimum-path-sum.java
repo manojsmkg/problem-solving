@@ -18,14 +18,7 @@ class Solution {
             minScore[i][j]=Math.min(up,left)+grid[i][j];
                 }
         }}
-        
-        for(int i=0;i<m;i++)
-        {       for(int j=0;j<n;j++)
-            {
-                System.out.print(minScore[i][j]+" ");
-            }
-         System.out.println("");
-    }
+
      return minScore[m-1][n-1];   
     }
 }
