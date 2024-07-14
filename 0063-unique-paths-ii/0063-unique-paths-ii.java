@@ -3,9 +3,7 @@ class Solution {
         
         int m=obstacleGrid.length;
         int n=obstacleGrid[0].length;
-        
-        if(m==1 && n==1 && obstacleGrid[0][0]==1) return 0;
-        
+            
         int dp[][] = new int[m][n];
 
         for(int i=0;i<m;i++)
