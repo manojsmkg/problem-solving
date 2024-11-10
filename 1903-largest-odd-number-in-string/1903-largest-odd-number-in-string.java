@@ -8,7 +8,7 @@ class Solution {
         
         for(int i=0;i<num.length();i++)
         {
-            if(Integer.parseInt(num.charAt(i)+"")%2 == 1)
+            if(num.charAt(i) == '1' || num.charAt(i) == '3' || num.charAt(i) == '5' || num.charAt(i) == '7' || num.charAt(i) == '9')
             {
                 result = num.substring(0,i+1);
              
