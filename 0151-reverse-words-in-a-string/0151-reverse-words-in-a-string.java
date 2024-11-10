@@ -7,7 +7,6 @@ class Solution {
         for(int i=splitWords.length-1;i>=0;i--)
         {
             if(i!=splitWords.length-1) newString = newString + " ";
-            if(splitWords[i].equals(" ")) continue;
             
             newString = newString+splitWords[i];
             newString = newString.trim();
