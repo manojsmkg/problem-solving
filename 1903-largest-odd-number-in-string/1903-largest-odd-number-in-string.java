@@ -2,9 +2,7 @@ class Solution {
     public String largestOddNumber(String num) 
     {
         
-        String result = "";
-        int startIndex = -1;
-        
+        String result = "";        
         
         for(int i=0;i<num.length();i++)
         {
