@@ -14,20 +14,23 @@
  * }
  */
 class Solution {
-    int globalDiameter = 0;
-    public int diaMeterOfBinaryTreeUtil(TreeNode root,int currHeight)
+    
+    int diameter = 0;
+    
+    public int util(TreeNode root, int height)
     {
-        if(root==null) return currHeight;
+        if(root==null) return height;
+        int lh=0,rh=0;
+        lh = util(root.left,height);
+        rh = util(root.right,height);
         
-        int lh=diaMeterOfBinaryTreeUtil(root.left,currHeight);
-        int rh=diaMeterOfBinaryTreeUtil(root.right,currHeight);
-        int currDiameter = lh+rh;
-        globalDiameter = Math.max(currDiameter,globalDiameter);
+        diameter = Math.max(lh+rh,diameter);
         return Math.max(lh,rh)+1;
     }
-    
-    public int diameterOfBinaryTree(TreeNode root) {
-             int h = diaMeterOfBinaryTreeUtil(root,0);
-        return globalDiameter;
+    public int diameterOfBinaryTree(TreeNode root) 
+    {
+        if(root==null) return 0;
+        int h = util(root,0);
+        return diameter;
     }
 }
