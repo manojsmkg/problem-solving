@@ -29,16 +29,14 @@ class Solution {
         if(root.left!=null) 
         {
             treeMap.put(root.left,root);
-        //    System.out.println(root.left.val + " " + root.val);
             buildParentMap(root.left,treeMap,target);
         }
         if(root.right!=null)
         {
             treeMap.put(root.right,root);
-        //    System.out.println(root.right.val + " " + root.val);
             buildParentMap(root.right,treeMap,target);
         }
-       // if(root.left == target || root.right == target) return;
+        if(root.left == target || root.right == target) return;
     }
   
     public List<Integer> distanceK(TreeNode root, TreeNode target, int k) 
