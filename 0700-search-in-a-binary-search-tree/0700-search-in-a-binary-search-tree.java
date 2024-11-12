@@ -14,10 +14,15 @@
  * }
  */
 class Solution {
-    public TreeNode searchBST(TreeNode root, int val) {
-        if(root==null) return root;
+    public TreeNode searchBSTUtil(TreeNode root, int val)
+    {
+        if(root == null) return root;
         else if(root.val == val) return root;
-        else if(val<root.val) return searchBST(root.left,val);
-        else return searchBST(root.right,val);
+        else if (root.val<val) return searchBSTUtil(root.right,val);
+        else return searchBSTUtil(root.left,val);
+    }
+    public TreeNode searchBST(TreeNode root, int val) {
+        return searchBSTUtil(root,val);
+        
     }
 }
