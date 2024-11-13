@@ -36,7 +36,7 @@ class Solution {
                 str.setCharAt(i,j);
                 if(wordSet.contains(str.toString()))
                 {
-                     System.out.println(str.toString()+ " "+ 2);
+                   //  System.out.println(str.toString()+ " "+ 2);
                     if(str.toString().equals(endWord)) return 2;
                     wordSet.remove(str.toString());
                     q.add(new Node(str.toString(),2));
@@ -57,7 +57,7 @@ class Solution {
                 str.setCharAt(i,j);
                 if(wordSet.contains(str.toString()))
                 {
-                    System.out.println(str.toString()+ " "+ (ct+1));
+                 //   System.out.println(str.toString()+ " "+ (ct+1));
                     if(str.toString().equals(endWord)) return ct+1;
                     wordSet.remove(str.toString());
                     q.add(new Node(str.toString(),ct+1));
