@@ -1,35 +1,45 @@
 class Solution {
-    public void dfs(ArrayList<ArrayList<Integer>> adj,int[] visited,int curr)
+    void dfs(int[] visited,List<List<Integer>> adj,int currNode)
     {
-        visited[curr]=1;
-        ArrayList<Integer> currAdj=adj.get(curr);
-        for(int newInd:currAdj)
-        {
-            if(visited[newInd]==1) continue;
-            dfs(adj,visited,newInd);
-        }
-        
-    }
-    public int findCircleNum(int[][] a) {
-        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
-        for(int i=0;i<a.length;i++) adj.add(new ArrayList<Integer>());
-        for(int i=0;i<a.length;i++)
-        {
-            ArrayList<Integer> currAdj = adj.get(i);
-            for(int j=0;j<a[i].length;j++)
-            {
-                if(a[i][j]==1) currAdj.add(j);
-            }
-        }
-        int res=0;
-        int visited[]=new int[a.length];
-        for(int i=0;i<a.length;i++)
+        List<Integer> currAdj = adj.get(currNode);
+        for(int i:currAdj)
         {
             if(visited[i]==1) continue;
-            res++;
-            dfs(adj,visited,i);
+            visited[i]=1;
+            dfs(visited,adj,i); 
+            
         }
-        return res;
+    }
+    public int findCircleNum(int[][] isConnected) {
+        List<List<Integer>> adj= new ArrayList<>();
+        int result = 0;
+        int[] visited = new int[isConnected.length];
+        
+        for(int i=0;i<isConnected.length;i++)
+          adj.add(new ArrayList<Integer>());
+        
+        for(int i=0;i<isConnected.length;i++)
+        {
+            List<Integer> currAdj = adj.get(i);
+            
+            for(int j=0;j<isConnected[i].length;j++)
+            {
+                if(i==j) continue;
+                if(isConnected[i][j]==1) currAdj.add(j);
+            }
+        }
+        
+        
+        for(int i=0;i<adj.size();i++)
+        {
+            if(visited[i]==0) 
+            {
+                visited[i]=1;
+                dfs(visited,adj,i);
+                result++;
+            }
+        }
+        return result;
         
     }
 }
