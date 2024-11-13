@@ -26,13 +26,10 @@ class Solution {
         while(rottenQ.isEmpty() == false)
         {
             int k=rottenQ.size();
-            System.out.println(k);
             if(k>0) result++;
             while(k>0)
             {
-                Pair<Integer,Integer> currPair = rottenQ.poll();
-              
-                    
+                Pair<Integer,Integer> currPair = rottenQ.poll();            
                 for(int ind=0;ind<4;ind++)
                 {
                     if(isValid(currPair.getKey()+x[ind],currPair.getValue()+y[ind],m,n,grid))
