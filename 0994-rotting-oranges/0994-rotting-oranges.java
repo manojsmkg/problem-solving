@@ -1,47 +1,58 @@
 class Solution {
-    public int orangesRotting(int[][] a) {
-        int count=0;
+    
+    public boolean isValid(int i,int j,int m,int n,int[][] grid)
+    {
+        return (i>=0) && (i<m) && (j>=0) && (j<n) && grid[i][j]==1;
+    }
+    
+    public int orangesRotting(int[][] grid) 
+    {
+        if(grid == null) return -1;
+        Queue<Pair<Integer,Integer>> rottenQ = new LinkedList<>();
+        int m=grid.length;
+        int n= grid[0].length;
         
-        Queue<ArrayList<Integer>> q = new LinkedList();
-        
-        int rows=a.length;
-        int columns=a[0].length;
-        int freshOranges=0;
-        
-        for(int i=0;i<rows;i++)
+        for(int i=0;i<grid.length;i++)
         {
-            for(int j=0;j<columns;j++)
+            for(int j=0;j<grid[i].length;j++)
             {
-                if(a[i][j] == 2)
-                {
-                    q.add(new ArrayList<>(Arrays.asList(i,j)));
-                }
-                if(a[i][j]==1) freshOranges++;
+                if(grid[i][j]==2) rottenQ.add(new Pair(i,j));
             }
         }
-        if(q.isEmpty() && freshOranges>0) return -1;
-        if(freshOranges==0) return 0;
-        freshOranges=freshOranges+q.size();
-        while(!q.isEmpty())
+        int result = -1;
+        int[] x= {1,-1,0,0};
+        int[] y= {0,0,1,-1};
+        
+        while(rottenQ.isEmpty() == false)
         {
-            int k=q.size();
+            int k=rottenQ.size();
+            System.out.println(k);
+            if(k>0) result++;
             while(k>0)
             {
-                ArrayList<Integer> currIndices = q.poll();
+                Pair<Integer,Integer> currPair = rottenQ.poll();
+              
+                    
+                for(int ind=0;ind<4;ind++)
+                {
+                    if(isValid(currPair.getKey()+x[ind],currPair.getValue()+y[ind],m,n,grid))
+                    {
+                        rottenQ.add(new Pair(currPair.getKey()+x[ind],currPair.getValue()+y[ind]));
+                        grid[currPair.getKey()+x[ind]][currPair.getValue()+y[ind]] = 2;
+                    }
+                }
                 k--;
-                freshOranges--;
-                int i=currIndices.get(0),j=currIndices.get(1);
-                if(i-1>=0 && a[i-1][j]==1) {a[i-1][j]=2;q.add(new ArrayList<>(Arrays.asList(i-1,j)));}
-                if(i+1<rows && a[i+1][j]==1) {a[i+1][j]=2;q.add(new ArrayList<>(Arrays.asList(i+1,j)));}
-                if(j-1>=0 && a[i][j-1]==1) {a[i][j-1]=2;q.add(new ArrayList<>(Arrays.asList(i,j-1)));}
-                if(j+1<columns && a[i][j+1]==1) {a[i][j+1]=2;q.add(new ArrayList<>(Arrays.asList(i,j+1)));}
             }
-            count++;
+            
         }
-        if(freshOranges==0) return count-1;
-        return -1;
         
-        
-        
+        for(int i=0;i<grid.length;i++)
+        {
+            for(int j=0;j<grid[i].length;j++)
+            {
+                if(grid[i][j]==1) return -1;
+            }
+        }
+        return result==-1?0:result;
     }
 }
