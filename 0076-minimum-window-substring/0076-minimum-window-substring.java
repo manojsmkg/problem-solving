@@ -18,20 +18,6 @@ class Solution {
         int start = 0, end = 0 , ct = minMap.size();
         int minStart = 0, minEnd = 0 , currCt = 0;
         String res = "";
-       /* while(currCt < ct && end < m)
-        {
-            if(minMap.containsKey(s.charAt(end)) == true)
-            {
-                minMap.put(s.charAt(end) , minMap.get(s.charAt(end)) + 1);
-                if(minMap.get(s.charAt(end)) == 0) currCt++;
-            }
-            else minMap.put(s.charAt(end), 1);
-            end++;
-        }
-        minEnd = end;
-        if(currCt == ct) res = s.substring(minStart,minEnd);
-        
-       */
 
         while(end<=m && start<=end)
         {            
