@@ -29,7 +29,6 @@ class Solution {
         int maxArea = 0;
         for(int i=0;i<n;i++)
         {
-            //if(n<=2) maxArea = Math.max(maxArea,((rightSmaller[i]-leftSmaller[i])*heights[i]));
              maxArea = Math.max(maxArea,((rightSmaller[i]-leftSmaller[i]+1)*heights[i]));
         }
 
