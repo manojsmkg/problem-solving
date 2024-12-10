@@ -10,7 +10,7 @@ class Solution {
             if(currK<=k && nums[end]%2 == 1) 
                 currK++;
 
-            while(currK>k)
+            while(currK>k && start<=end)
             {
                 if(nums[start]%2==1) currK--;
                 start++;
