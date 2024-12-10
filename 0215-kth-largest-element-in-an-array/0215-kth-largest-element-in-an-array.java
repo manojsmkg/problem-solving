@@ -6,7 +6,7 @@ class Solution {
         for(int i=0;i<nums.length;i++)
         {
             pq.offer(nums[i]);
-            if(pq.size()>k) pq.remove();
+            if(pq.size()>k) pq.poll();
         }
         return pq.peek();
     }
