@@ -17,7 +17,6 @@ class Solution {
                 if(i==n-1) q.add(productSoFar);
             }
         }
-        System.out.println(q);
         
         int subProduct = q.poll();
         productSoFar = 1;
@@ -31,16 +30,12 @@ class Solution {
             }
             else
             {
-                int possible = subProduct / productSoFar;
+                int maxPossibleSubProduct = subProduct / productSoFar;
                 productSoFar = productSoFar * nums[i];
-                System.out.println(possible);
-                gmax = Math.max(possible, gmax);
+                gmax = Math.max(maxPossibleSubProduct, gmax);
                 gmax = Math.max(productSoFar, gmax);
             }
         }
-        return gmax;
-        
-        
-        
+        return gmax;       
     }
 }
