@@ -32,7 +32,6 @@ class StockSpanner {
         if(st.isEmpty() == false ) 
         {
             span = index - st.peek().index;
-            if(price == st.peek().price) span++;
         }
 
         st.push(new Node(price,index));
