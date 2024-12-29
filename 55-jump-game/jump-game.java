@@ -6,12 +6,8 @@ class Solution {
 
         for(int i=0;i<n;i++)
         {
-            if(reachable>=i)
-            {
-                reachable = Math.max(reachable,i+nums[i]);
-            }
-
             if(reachable<i) return false;
+            reachable = Math.max(reachable,i+nums[i]);
         }
         return true;
         
