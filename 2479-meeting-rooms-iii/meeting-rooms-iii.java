@@ -39,7 +39,7 @@ class Solution {
 
         int maxMeetings = 0, resultRoom = 0;
         for (int i = 0; i < n; i++) {
-            if (meetingMap.get(i) > maxMeetings || (meetingMap.get(i) == maxMeetings && i < resultRoom)) {
+            if (meetingMap.get(i) > maxMeetings) {
                 maxMeetings = meetingMap.get(i);
                 resultRoom = i;
             }
