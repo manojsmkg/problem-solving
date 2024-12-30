@@ -12,15 +12,12 @@ class Solution {
         int end = pq.peek()[1]; 
      //   pq.poll();
         List<int[]> result = new ArrayList<>();
-        int lastAdded = 0;
-        int processInterval = 0;
         while(pq.isEmpty()==false)
         {
             int[] currInterval = pq.poll();
             if(currInterval[0]<=end) 
             {
                 end = Math.max(end,currInterval[1]);
-                lastAdded = 1;
             }
             else 
             {
@@ -28,14 +25,11 @@ class Solution {
                 result.add(mergedInterval);
                 start = currInterval[0];
                 end = currInterval[1];
-                processInterval = 1;
             }
         }
         
-        if(lastAdded == 1 || processInterval == 1) {
             int[] mergedInterval = {start,end};
             result.add(mergedInterval);
-            }
         int[][] resultArr = new int[result.size()][2];
         for(int i=0;i<result.size();i++)
         {
