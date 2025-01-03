@@ -23,6 +23,7 @@ class Solution {
             tempHead.next = currNode;
             tempHead = tempHead.next;
         }
+        System.gc();
         return head;
     }
 }
