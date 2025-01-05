@@ -3,7 +3,6 @@ class Solution {
     public boolean isValidBoard(char[][] board,int n,int x,int y)
     {
 
-     //   System.out.println("Valid Board called");
         int i,j;
 
         i=x;
@@ -12,7 +11,6 @@ class Solution {
         {
             if(board[i][j] == 'Q' && j!=y) return false;
         }
-       // System.out.println("Valid Column");
 
         i=x-1;
         j=y-1;
@@ -22,7 +20,7 @@ class Solution {
             i--;
             j--;
         }
-        i=x+1;
+      /*  i=x+1;
         j=y+1;
         while(i>=0 && j>=0 && i<n && j<n)
         {
@@ -30,6 +28,8 @@ class Solution {
             i++;
             j++;
         }
+        
+
         i=x-1;
         j=y+1;
         while(i>=0 && j>=0 && i<n && j<n)
@@ -37,7 +37,7 @@ class Solution {
             if(board[i][j] == 'Q') return false;
             i--;
             j++;
-        }
+        }*/
         i=x+1;
         j=y-1;
         while(i>=0 && j>=0 && i<n && j<n)
