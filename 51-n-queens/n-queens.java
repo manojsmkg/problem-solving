@@ -20,24 +20,7 @@ class Solution {
             i--;
             j--;
         }
-      /*  i=x+1;
-        j=y+1;
-        while(i>=0 && j>=0 && i<n && j<n)
-        {
-            if(board[i][j] == 'Q') return false;
-            i++;
-            j++;
-        }
-        
 
-        i=x-1;
-        j=y+1;
-        while(i>=0 && j>=0 && i<n && j<n)
-        {
-            if(board[i][j] == 'Q') return false;
-            i--;
-            j++;
-        }*/
         i=x+1;
         j=y-1;
         while(i>=0 && j>=0 && i<n && j<n)
