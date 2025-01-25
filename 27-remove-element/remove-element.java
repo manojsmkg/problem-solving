@@ -5,7 +5,6 @@ class Solution {
     
         if(n==0 || (n==1 && val == nums[0]) ) return 0;
 
-        int ct = 0;
         int j=0;
         for(int i=0;i<n;i++)
         {
