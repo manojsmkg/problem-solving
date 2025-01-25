@@ -1,11 +1,5 @@
 class Solution {
 
-    public void swap(int a,int b)
-    {
-        int temp = a;
-        a=b;
-        b=temp;
-    }
     public void merge(int[] nums1, int m, int[] nums2, int n) 
     {
         int i=0,j=0,k=0;
