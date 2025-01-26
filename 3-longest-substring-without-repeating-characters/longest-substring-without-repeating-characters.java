@@ -14,14 +14,12 @@ class Solution {
             charSet.add(s.charAt(end));
             end++;
             len = Math.max(len,charSet.size());
-            //System.out.println(charSet);
         }
         while(end<n && charSet.contains(s.charAt(end))==true)
         {
             charSet.remove(s.charAt(start));
             start++;
         }
-       // System.out.println(start + " " + end + " " + charSet);
 
      }
      return len;
