@@ -20,7 +20,6 @@ class Solution {
         int minCandies = 0;
         for(int i=0;i<n;i++) 
         {            
-            System.out.println(candies[i]);
             minCandies+=candies[i];
         }
         return minCandies;
