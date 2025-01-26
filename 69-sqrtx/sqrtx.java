@@ -1,14 +1,20 @@
 class Solution {
+    
     public int mySqrt(int x) 
-    {
-        int i=0;
-        if(x==1 || x==2) return 1;
-        if(x == 2147483647) return 46340;
-        for(i=0;i<=x/2;i++)
-        {
-            if(i*i==x) return i;
-            if(i*i>x) break; 
+      {
+        int l = 0;
+        int r = x;
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+            long square = (long) m * m;
+            if (square == x) {
+                return m;
+            } else if (square < x) {
+                l = m + 1;
+            } else {
+                r = m - 1;
+            }
         }
-        return i-1;
+        return r;
     }
 }
