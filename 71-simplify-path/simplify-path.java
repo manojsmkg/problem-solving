@@ -6,7 +6,6 @@ class Solution {
         Stack<String> pathStack = new Stack<>();
         for(int i=0;i<n;i++)
         {
-        //    System.out.print(folders[i]+ " ");
             if(!folders[i].trim().equals(""))
             {
                 if(folders[i].equals(".."))
@@ -18,7 +17,6 @@ class Solution {
                 else pathStack.push(folders[i]);
             }
         }
-       // System.out.println(pathStack);
         int s = pathStack.size();
         String[] res = new String[s];
         s--;
@@ -32,7 +30,6 @@ class Solution {
         for(int i=0;i<res.length;i++)
         {
            canonicalPath+="/"+res[i];
-          // System.out.print(res[i]+ " ");
         }
         return canonicalPath.equals("")?"/":canonicalPath;    
     }
