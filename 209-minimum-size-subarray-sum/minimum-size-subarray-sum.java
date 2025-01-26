@@ -21,8 +21,6 @@ class Solution {
                 found = true;
                 sum-=nums[start++];      
             }
-            System.out.println(start + " " + end + " " + sum);
-            
         }
         return found?res:0;      
     }
