@@ -11,15 +11,7 @@ class Solution {
             effectiveGas[i] = (gas[i]-cost[i]);
         }
         if(totalEffectiveGas<0) return -1;
-
-        int prefixSum = 0;
-        int suffixSum[] = new int[n];
-        for(int i=n-1;i>=0;i--)
-        {
-            suffixSum[i] = s;
-            s+=effectiveGas[i];
-        }
-        
+        int prefixSum = 0; 
         int ans = 0;
         for(int i=0;i<n;i++)
         {
