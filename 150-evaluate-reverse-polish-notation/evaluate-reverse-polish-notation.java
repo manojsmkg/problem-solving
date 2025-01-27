@@ -32,7 +32,6 @@ class Solution {
             }
             else operands.push(Integer.parseInt(s));
         }
-        return operands.pop();
-        
+        return operands.pop();    
     }
 }
