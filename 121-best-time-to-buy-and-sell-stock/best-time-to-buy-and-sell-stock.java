@@ -1,15 +1,15 @@
 class Solution {
     public int maxProfit(int[] prices) 
     {
-        int profit = 0;
+        int maxProfit = 0;
         int n = prices.length;
         int greatestSoFar = prices[n-1];
-
-        for(int i=n-1;i>=0;i--)
+        for(int i=n-2;i>=0;i--)
         {
-            if(profit < greatestSoFar - prices[i]) profit = greatestSoFar - prices[i];
-            greatestSoFar = Math.max(greatestSoFar,prices[i]);
+            maxProfit = Math.max(greatestSoFar-prices[i],maxProfit);
+            greatestSoFar = Math.max(prices[i],greatestSoFar);
         }
-        return profit;
+        return maxProfit;
+        
     }
 }
