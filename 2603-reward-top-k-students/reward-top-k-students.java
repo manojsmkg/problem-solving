@@ -21,12 +21,6 @@ class Node
 class Solution {
     public List<Integer> topStudents(String[] positive_feedback, String[] negative_feedback, String[] report, int[] student_id, int k) 
     {
-        List<String []> reportWords = new ArrayList<>();
-        for(String curReport: report)
-        {
-            reportWords.add(curReport.split(" "));
-        }
-
         Set<String> posWords = new HashSet<>();
         Set<String> negWords = new HashSet<>();
 
@@ -41,10 +35,11 @@ class Solution {
         .thenComparingInt(Node::getStudentId)
         );                   
         Map<Integer,Integer> scoreMap = new HashMap<>();
-        for(int i=0;i<reportWords.size();i++)
+        for(int i=0;i<report.length;i++)
         {
             int sc = 0;
-           for(String currWord : reportWords.get(i))
+            String[] reportWords = report[i].split(" ");
+           for(String currWord : reportWords)
            {
                 if(negWords.contains(currWord))
                 {
