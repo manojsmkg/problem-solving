@@ -31,8 +31,7 @@ class Solution {
             negWords.add(word);
 
         PriorityQueue<Node> topKScores = new PriorityQueue<>(
-        Comparator.comparingInt(Node::getScore).reversed()
-        .thenComparingInt(Node::getStudentId)
+       (a, b) -> (b.score != a.score) ? Integer.compare(b.score, a.score) : Integer.compare(a.studentId, b.studentId)
         );                   
         Map<Integer,Integer> scoreMap = new HashMap<>();
         for(int i=0;i<report.length;i++)
